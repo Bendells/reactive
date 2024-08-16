@@ -16,7 +16,7 @@ public class TaskService {
     private final UserService userService;
 
     @Inject
-    public TaskService(UserService userService) {
+    public TaskService(final UserService userService) {
         this.userService = userService;
     }
 
