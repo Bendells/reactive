@@ -42,7 +42,7 @@ public class ProjectService {
         return userService.getCurrentUser()
                 .chain(user -> {
                     project.user = user;
-                    return project.persistAndFlush();
+                        return project.persistAndFlush();
                 });
     }
 

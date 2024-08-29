@@ -13,5 +13,6 @@ INSERT INTO "user_roles" ("id", "role") VALUES (1, 'user')
 INSERT INTO "projects" ("id", "name", "user_id", "created", "version")
 VALUES (0, 'Work', 1, NOW(), 0)
     ON CONFLICT DO NOTHING;
+SELECT setval('users_SEQ', 1);
 
 ALTER SEQUENCE IF EXISTS hibernate_sequence RESTART WITH 10;

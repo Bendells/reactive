@@ -3,6 +3,7 @@ package com.example.fullstack.user;
 import com.example.fullstack.project.Project;
 import com.example.fullstack.task.Task;
 import io.quarkus.elytron.security.common.BcryptUtil;
+import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -26,8 +27,7 @@ public class UserService {
 
     public Uni<User> findById(final long id) {
         return User.<User>findById(id)
-                .onItem().ifNull().failWith( () -> new ObjectNotFoundException(id, "User with id " + id + " not found")
-                        );
+                .onItem().ifNull().failWith( () -> new ObjectNotFoundException(id, "User with id " + id + " not found"));
     }
 
     public Uni<User> findByName(final String name) {
